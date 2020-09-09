@@ -1,0 +1,99 @@
+{'timestamp': 1599617863112,
+'context': None,
+'progress_ms': 215098,
+'item':
+    {
+        'album':
+            {
+                'album_type': 'single',
+                'artists': [
+                    {
+                        'external_urls': {'spotify': 'https://open.spotify.com/artist/4nDoRrQiYLoBzwC5BhVJzF'},
+                        'href': 'https://api.spotify.com/v1/artists/4nDoRrQiYLoBzwC5BhVJzF',
+                        'id': '4nDoRrQiYLoBzwC5BhVJzF',
+                        'name': 'Camila Cabello',
+                        'type': 'artist',
+                        'uri': 'spotify:artist:4nDoRrQiYLoBzwC5BhVJzF'
+                    },
+                    {
+                        'external_urls': {'spotify': 'https://open.spotify.com/artist/1zNqQNIdeOUZHb8zbZRFMX'},
+                        'href': 'https://api.spotify.com/v1/artists/1zNqQNIdeOUZHb8zbZRFMX',
+                        'id': '1zNqQNIdeOUZHb8zbZRFMX',
+                        'name': 'Swae Lee',
+                        'type': 'artist',
+                        'uri': 'spotify:artist:1zNqQNIdeOUZHb8zbZRFMX'
+                    }
+                ],
+                'available_markets': ['AD', 'AE', 'AL', 'AR', 'AT', 'AU', 'BA', 'BE', 'BG', 'BH', 'BO', 'BR', 'BY', 'CA', 'CH', 'CL', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DK', 'DO', 'DZ', 'EC', 'EE', 'EG', 'ES', 'FI', 'FR', 'GB', 'GR', 'GT', 'HK', 'HN', 'HR', 'HU', 'ID', 'IE', 'IL', 'IN', 'IS', 'IT', 'JO', 'JP', 'KW', 'KZ', 'LB', 'LI', 'LT', 'LU', 'LV', 'MA', 'MC', 'MD', 'ME', 'MK', 'MT', 'MX', 'MY', 'NI', 'NL', 'NO', 'NZ', 'OM', 'PA', 'PE', 'PH', 'PL', 'PS', 'PT', 'PY', 'QA', 'RO', 'RS', 'RU', 'SA', 'SE', 'SG', 'SI', 'SK', 'SV', 'TH', 'TN', 'TR', 'TW', 'UA', 'US', 'UY', 'VN', 'XK', 'ZA'],
+                'external_urls': {'spotify': 'https://open.spotify.com/album/61rwEPg49tCJFTXzyWgxJP'},
+                'href': 'https://api.spotify.com/v1/albums/61rwEPg49tCJFTXzyWgxJP',
+                'id': '61rwEPg49tCJFTXzyWgxJP',
+                'images': [
+                    {
+                        'height': 640,
+                        'url': 'https://i.scdn.co/image/ab67616d0000b273ff42471ce6ed791ebd2012f9',
+                        'width': 640
+                    },
+                    {
+                        'height': 300,
+                        'url': 'https://i.scdn.co/image/ab67616d00001e02ff42471ce6ed791ebd2012f9',
+                        'width': 300
+                    },
+                    {
+                        'height': 64,
+                        'url': 'https://i.scdn.co/image/ab67616d00004851ff42471ce6ed791ebd2012f9',
+                        'width': 64
+                    }
+                ],
+                'name': 'Real Friends',
+                'release_date': '2018-08-16',
+                'release_date_precision': 'day',
+                'total_tracks': 1,
+                'type': 'album',
+                'uri': 'spotify:album:61rwEPg49tCJFTXzyWgxJP'
+            },
+        'artists': [
+            {
+                'external_urls': {'spotify': 'https://open.spotify.com/artist/4nDoRrQiYLoBzwC5BhVJzF'},
+                'href': 'https://api.spotify.com/v1/artists/4nDoRrQiYLoBzwC5BhVJzF',
+                'id': '4nDoRrQiYLoBzwC5BhVJzF',
+                'name': 'Camila Cabello',
+                'type': 'artist',
+                'uri': 'spotify:artist:4nDoRrQiYLoBzwC5BhVJzF'
+            },
+            {
+                'external_urls': {'spotify': 'https://open.spotify.com/artist/1zNqQNIdeOUZHb8zbZRFMX'},
+                'href': 'https://api.spotify.com/v1/artists/1zNqQNIdeOUZHb8zbZRFMX',
+                'id': '1zNqQNIdeOUZHb8zbZRFMX',
+                'name': 'Swae Lee',
+                'type': 'artist',
+                'uri': 'spotify:artist:1zNqQNIdeOUZHb8zbZRFMX'
+            }
+        ],
+        'available_markets': ['AD', 'AE', 'AL', 'AR', 'AT', 'AU', 'BA', 'BE', 'BG', 'BH', 'BO', 'BR', 'BY', 'CA', 'CH', 'CL', 'CO', 'CR', 'CY', 'CZ', 'DE', 'DK', 'DO', 'DZ', 'EC', 'EE', 'EG', 'ES', 'FI', 'FR', 'GB', 'GR', 'GT', 'HK', 'HN', 'HR', 'HU', 'ID', 'IE', 'IL', 'IN', 'IS', 'IT', 'JO', 'JP', 'KW', 'KZ', 'LB', 'LI', 'LT', 'LU', 'LV', 'MA', 'MC', 'MD', 'ME', 'MK', 'MT', 'MX', 'MY', 'NI', 'NL', 'NO', 'NZ', 'OM', 'PA', 'PE', 'PH', 'PL', 'PS', 'PT', 'PY', 'QA', 'RO', 'RS', 'RU', 'SA', 'SE', 'SG', 'SI', 'SK', 'SV', 'TH', 'TN', 'TR', 'TW', 'UA', 'US', 'UY', 'VN', 'XK', 'ZA'],
+        'disc_number': 1,
+        'duration_ms': 223583,
+        'explicit': False,
+        'external_ids': {'isrc': 'USSM11806903'},
+        'external_urls': {'spotify': 'https://open.spotify.com/track/5vnpANH92iEajvGwE2oQ6r'},
+        'href': 'https://api.spotify.com/v1/tracks/5vnpANH92iEajvGwE2oQ6r',
+        'id': '5vnpANH92iEajvGwE2oQ6r',
+        'is_local': False,
+        'name': 'Real Friends',
+        'popularity': 67,
+        'preview_url': 'https://p.scdn.co/mp3-preview/41999871c60ac9c9e461f4cadf6f897a86a11116?cid=372ec5420cd54936a3a4313100564e51',
+        'track_number': 1,
+        'type': 'track',
+        'uri': 'spotify:track:5vnpANH92iEajvGwE2oQ6r'
+    },
+'currently_playing_type': 'track',
+'actions':
+    {
+        'disallows':
+            {
+                'resuming': True
+            }
+    },
+'is_playing': True}
+
+

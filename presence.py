@@ -3,14 +3,9 @@ import spotify_details
 
 from yeelight import Bulb
 import os
-import spotipy
-from spotipy.oauth2 import SpotifyOAuth
+
 import time
-import urllib3
-from PIL import Image
-import requests
-import tkinter
-import concurrent.futures
+
 
 # Before running, you must set the following environment variables
 # SPOTIPY_CLIENT_ID = client_id
@@ -103,14 +98,6 @@ def create_bulb_list(total_bulbs):
     return bulb_list
 
 
-bulbs = initialise_bulbs()
-
-# bulb = Bulb("192.168.0.2")
-scope = 'user-read-currently-playing'
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-    scope=scope, cache_path=resource_path + '.cache-light-presence'))
-
-
 def write_property(type, value):
     with open(resource_path + 'properties.txt', 'r') as properties:
         lines = properties.read().split('\n')
@@ -124,24 +111,6 @@ def write_property(type, value):
                     brightness = 100
 
 
-def get_song(filename):
-    current_song = sp.currently_playing()
-    image = current_song['item']['album']['images'][2]['url']
-    url = image.split('/')
-    # print(url)
-    source = resource_path + url[4] + '.jpg'
-    newfilename, newimage = download_image(image, source, filename)
-    return newfilename, current_song, newimage
-
-
-def download_image(url, source, filename):
-    response = requests.get(url, stream=True)
-    response.raw.decode_content = True
-    newimage = Image.open(response.raw)
-    response.close()
-    return url, newimage
-
-
 def set_colour(newr, newg, newb):
     for light_bulb in bulbs:
         if light_bulb is not None:
@@ -149,61 +118,39 @@ def set_colour(newr, newg, newb):
     print(f'Changed colour of all active bulbs to: {newr} {newg} {newb}')
 
 
-def spotify_colour(last_time, last_name):
-    # if time.time() - last_time > 5:
-    newname, current_song, image = get_song(last_name)
-    if newname != last_name:
+def spotify_colour(last_name):
+    url, current_song, image = spotify_details.get_song(resource_path)
+    if url != last_name:
         print('Now Playing: ' + current_song['item']['name'] + ' by ' +
               current_song['item']['album']['artists'][0]['name'] + ' on Playlist ' +
               current_song['item']['album']['name'])
-        lastname = newname
         rgb = colours.dominant_colour(image)
-        # print('1:%d|2:%d|3:%d' % (rgb[0], rgb[1], rgb[2]))
         if int(rgb[0]) > 50 or int(rgb[1]) > 50 or int(rgb[2]) > 50:
             set_colour(int(rgb[0]), int(rgb[1]), int(rgb[2]))
     # set_colour() #find the most dominant colour and set it here
-    return str(True), newname, current_song, image, time.time()
-    # return str(False)
+    return url, current_song, image, time.time()
 
 
-def draw_ui():
-    top = tkinter.Tk()
-    top.mainloop()
-    return top
+def colour_loop(lst, lpt, ln):
+    time.sleep(0.5)
+    if time.time() - lpt > 1:
+        lpt = time.time()
+    if time.time() - lst > 3:
+        new_name, current_song, new_image, new_time = spotify_colour(ln)
+        return new_time, lpt, new_name, new_image
+    return lst, lpt, ln, 0
 
 
 if __name__ == '__main__':
-    for imgName in os.listdir(resource_path):
-        if imgName.endswith('.jpg'):
-            os.remove(resource_path + imgName)
+    bulbs = initialise_bulbs()
     for bulb in bulbs:
         if bulb is not None:
             bulb.turn_on()
             bulb.set_brightness(brightness)
     rgb = [180, 180, 0]
-    lastname = ''
+    last_name = ''
     last_spotify_time = time.time()
     last_process_time = time.time()
     image = None
-    with concurrent.futures.ThreadPoolExecutor() as exe:
-        # base_ui_ticket = exe.submit(tkinter.Tk())
-        # base_ui = base_ui_ticket.result()
-        while 1:
-            time.sleep(0.5)
-            if time.time() - last_spotify_time > 3:
-                spotify_update = exe.submit(spotify_colour, last_spotify_time, lastname)
-                use_update, newname, current_song, new_image, new_time = spotify_update.result()
-                if use_update == 'True':
-                    lastname = newname
-                    last_spotify_time = new_time
-                    image = new_image
-            if time.time() - last_process_time > 1:
-                last_process_time = time.time()
-                # print(time.time())
-            # ui_update = exe.submit(draw_ui())
-
-#     with concurrent.futures.ThreadPoolExecutor() as executor:
-#         ui = executor.submit(draw_ui())
-#         while 1:
-#             getname = executor.submit(colour_sequence(lastname))
-#             print(getname.result())
+    while 1:
+        last_spotify_time, last_process_time, last_name, image = colour_loop(last_spotify_time, last_process_time, last_name)
