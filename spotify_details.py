@@ -13,7 +13,6 @@ def get_song(cache_path):
     current_song = sp.currently_playing()
     image_url = current_song['item']['album']['images'][2]['url']
     url, image = download_image(image_url)
-    print(current_song)
     return url, current_song, image
 
 

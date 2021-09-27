@@ -1,2 +1,2 @@
 ips=192.168.0.2
-brightness=100
+brightness=1
